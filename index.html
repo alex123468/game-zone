@@ -107,3 +107,44 @@ document.getElementById('search').addEventListener('input',e=>{const q=e.target.
 </script>
 </body>
 </html>
+<!-- GAME ZONE PREMIUM -->
+<section style="background:#17102d;color:white;padding:25px;
+border:2px solid gold;border-radius:18px;text-align:center;
+margin:20px;">
+  <h2 style="color:gold;">👑 GAME ZONE PREMIUM</h2>
+  <p>Desbloquea tu zona exclusiva.</p>
+
+  <input id="codigoPremium" type="password"
+  placeholder="Introduce tu código"
+  style="padding:12px;border-radius:8px;">
+
+  <button onclick="desbloquearPremium()"
+  style="padding:12px;background:gold;border:0;
+  border-radius:8px;margin:10px;">
+  Desbloquear
+  </button>
+
+  <p id="mensajePremium"></p>
+
+  <div id="zonaPremium" style="display:none;">
+    <h3>🌟 ¡BIENVENIDO A PREMIUM!</h3>
+    <p>Has desbloqueado los retos exclusivos.</p>
+    <p>🏆 Reto especial: consigue 10 puntos en tus juegos.</p>
+    <p>🎨 Tema exclusivo: modo dorado.</p>
+  </div>
+</section>
+
+<script>
+function desbloquearPremium() {
+  const codigo = document.getElementById("codigoPremium").value;
+
+  if (codigo === "GZ2026") {
+    document.getElementById("zonaPremium").style.display = "block";
+    document.getElementById("mensajePremium").textContent =
+      "¡Código correcto! Premium desbloqueado 👑";
+  } else {
+    document.getElementById("mensajePremium").textContent =
+      "Código incorrecto. Inténtalo otra vez.";
+  }
+}
+</script>
