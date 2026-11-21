@@ -77,6 +77,7 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
  <div class="dialog"><div class="dialog-head"><div><div class="eyebrow">GAME ZONE ARCADE</div><h2 id="gameTitle" style="margin:3px 0">Minijuego</h2></div><button class="close" onclick="closeGame()" aria-label="Cerrar">×</button></div><div class="game-area" id="gameArea"></div></div>
 </div>
 <script>
+  let reactionTimer=null, reactionStart=0, canReact=false, chosen=[], matched=0, attempts=0;
 const modal=document.getElementById('modal'), area=document.getElementById('gameArea'), title=document.getElementById('gameTitle');
 let reactionTimer=null, reactionStart=0, canReact=false, chosen=[], matched=0, attempts=0;
 function openGame(type){modal.classList.add('open'); if(type==='memory') memoryGame(); if(type==='quiz') quizGame(); if(type==='reaction') reactionGame();}
