@@ -149,3 +149,19 @@ function desbloquearPremium() {
   }
 }
 </script>
+let reactionTimer=null, reactionStart=0, canReact=false, chosen=[], matched=0, attempts=0;
+const CLAVE_PISTAS = 'gameZonePistas';
+
+function conseguirPistas() {
+  return JSON.parse(localStorage.getItem(CLAVE_PISTAS) || '[]');
+}
+
+function darPista(juego) {
+  let pistas = conseguirPistas();
+
+  if (!pistas.includes(juego)) {
+    pistas.push(juego);
+    localStorage.setItem(CLAVE_PISTAS, JSON.stringify(pistas));
+    alert('¡Has ganado una pista Premium! 👑');
+  }
+}
