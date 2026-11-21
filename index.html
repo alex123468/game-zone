@@ -78,6 +78,21 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
 </div>
 <script>
   let reactionTimer=null, reactionStart=0, canReact=false, chosen=[], matched=0, attempts=0;
+  const CLAVE_PISTAS = 'gz_pistas';
+
+function obtenerPistas() {
+  return JSON.parse(localStorage.getItem(CLAVE_PISTAS) || '[]');
+}
+
+function darPista(juego) {
+  let pistas = obtenerPistas();
+
+  if (!pistas.includes(juego)) {
+    pistas.push(juego);
+    localStorage.setItem(CLAVE_PISTAS, JSON.stringify(pistas));
+    alert('¡Has conseguido una pista Premium! 👑');
+  }
+}
 const modal=document.getElementById('modal'), area=document.getElementById('gameArea'), title=document.getElementById('gameTitle');
 let reactionTimer=null, reactionStart=0, canReact=false, chosen=[], matched=0, attempts=0;
 function openGame(type){modal.classList.add('open'); if(type==='memory') memoryGame(); if(type==='quiz') quizGame(); if(type==='reaction') reactionGame();}
